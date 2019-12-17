@@ -1,0 +1,35 @@
+connect sys / as sysdba;
+create user pluser identified by pluser;
+grant connect,resource , unlimited tablespace to pluser;
+
+set linesize 200;
+set pagesize 20;
+
+set serveroutput on;
+select * from tab;
+ 
+create table emp_tax(empno number(4),ename varchar2(10),ejob varchar2(20), etax number(7,2));
+
+show user;
+desc user_source;
+grant execute on procedure_name to user_name;
+select text from user_source where name='P1';
+select text from all_source where name='P1' and owner='PLUSER'
+
+
+
+select status,object_name,object_type from user_objects where object_type='PROCEDURE';
+
+alter procedure p1 compile; 
+-- to recompile the procedure if it becomes invalid. After DDL operation on table procedures becomes invalid which are created earlier.
+
+execute immediate 'truncate table table_name';   -- in pl/sql begin
+alter trigger emp_dml disable;
+alter table dept disable all triggers;
+drop trigger tn;
+user_triggers
+
+
+alter table dept add primary key(deptno);
+SELECT CONSTRAINT_TYPE FROM USER_CONSTRAINTS WHERE TABLE_NAME='DEPT';
+SELECT CONSTRAINT_NAME, SEARCH_CONDITION AS CONSTRAINT_TYPE FROM USER_CONSTRAINTS WHERE TABLE_NAME='DEPT';
